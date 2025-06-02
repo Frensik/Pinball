@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 60165008}
   - component: {fileID: 60165007}
   m_Layer: 0
-  m_Name: Flipper
+  m_Name: Flipper 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +430,7 @@ Transform:
   m_LocalScale: {x: 6, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 24.713001}
 --- !u!1 &198392122
 GameObject:
@@ -1710,8 +1710,9 @@ GameObject:
   - component: {fileID: 910617398}
   - component: {fileID: 910617397}
   - component: {fileID: 910617396}
+  - component: {fileID: 910617401}
   m_Layer: 0
-  m_Name: Flipper (1)
+  m_Name: Flipper 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2006,8 +2007,27 @@ Transform:
   m_LocalScale: {x: 6, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 272.09198, y: 65.287, z: 137.74701}
+--- !u!95 &910617401
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910617395}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e51f18f307cf0f8429bde70d861d0d9f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &956817403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3804,7 +3824,7 @@ PrefabInstance:
     - target: {fileID: 2047960787034623939, guid: bd340ecc60ecacb4f996c2f13e9f7a08,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 2047960787034623939, guid: bd340ecc60ecacb4f996c2f13e9f7a08,
         type: 3}
@@ -3814,7 +3834,7 @@ PrefabInstance:
     - target: {fileID: 2047960787034623939, guid: bd340ecc60ecacb4f996c2f13e9f7a08,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 31.7
       objectReference: {fileID: 0}
     - target: {fileID: 2047960787034623939, guid: bd340ecc60ecacb4f996c2f13e9f7a08,
         type: 3}
