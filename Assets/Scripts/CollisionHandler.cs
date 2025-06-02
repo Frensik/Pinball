@@ -29,14 +29,13 @@ public class CollisionHandler : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         //pI = GetComponent<Flipper>();
         aSo = GetComponent<AudioSource>();
-        //deathCanvas.gameObject.SetActive(false);
+        deathCanvas.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         scoreText.text = "score " + score.ToString();
-        //if points are over 100 then you win
+        
     }
 
     private void OnCollisionEnter(Collision other)
