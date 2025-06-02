@@ -52,7 +52,6 @@ public class CollisionHandler : MonoBehaviour
                 FailState();
                 break;
             default:
-
                 break;
         }
     }
@@ -69,7 +68,6 @@ public class CollisionHandler : MonoBehaviour
         score++;
         Debug.Log(score);
         aSo.PlayOneShot(successSFX, 0.5f);
-        successVFX.Play();
 
     }
 
@@ -78,8 +76,8 @@ public class CollisionHandler : MonoBehaviour
         failVFX.Play();
         aSo.PlayOneShot(failSFX);
         //pI.enabled = false;
-        deathCanvas.gameObject.SetActive(true);
-        restart.onClick.AddListener(ReloadLevel);
+        //deathCanvas.gameObject.SetActive(true);
+        //restart.onClick.AddListener(ReloadLevel);
         //Invoke("ReloadLevel", delay);
     }
 
