@@ -2,51 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class CollisionHandler : MonoBehaviour
 {
     int currentSceneIndex;
     float delay = 2f;
 
-    //PlayerInput pM;
+    Flipper pI;
     [SerializeField] AudioClip successSFX;
     [SerializeField] AudioClip failSFX;
     AudioSource aSo;
     [SerializeField] ParticleSystem successVFX;
     [SerializeField] ParticleSystem failVFX;
     [SerializeField] MeshRenderer mR;
+    [SerializeField] TextMeshPro scoreText;
 
-    bool isTransitioning = false;
 
-
+    int score = 0;
 
     void Start()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        //pM = GetComponent<PlayerInput>();
+        pI = GetComponent<Flipper>();
         aSo = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //if points are over 100 then you win
     }
 
     private void OnCollisionEnter(Collision other)
     {
         switch (other.gameObject.tag)
         {
-            case "Friendly":
-                print("bazinga");
+            case "Bumper":
+                Bumper();
                 break;
             case "Finish":
                 WinState();
                 break;
-            case "Boinko":
+            case "Ouch":
+                FailState();
                 break;
             default:
-                FailState();
+
                 break;
         }
     }
@@ -54,18 +57,25 @@ public class CollisionHandler : MonoBehaviour
     private void WinState()
     {
         successVFX.Play();
-        isTransitioning = true;
         aSo.PlayOneShot(successSFX, 0.5f);
         Invoke("LoadNextLevel", delay);
+    }
+
+    private void Bumper()
+    {
+        
+        score++;
+        Debug.Log(score);
+        aSo.PlayOneShot(successSFX, 0.5f);
+        successVFX.Play();
+
     }
 
     private void FailState()
     {
         failVFX.Play();
-        mR.enabled = false;
-        isTransitioning = true;
         aSo.PlayOneShot(failSFX, 0.5f);
-        //pM.enabled = false;
+        pI.enabled = false;
         Invoke("ReloadLevel", delay);
     }
 
