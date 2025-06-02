@@ -5,10 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Flipper : MonoBehaviour
 {
-    [SerializeField] AnimationClip flip;
+    private Animator animator;
+    private PlayerInput input;
+    //[SerializeField] AnimationClip flip;
 
-    public void OnFLip(InputAction value)
+    public void OnFLip(InputAction input)
     {
-
+        animator.SetTrigger("Flip");
     }
 }
+
