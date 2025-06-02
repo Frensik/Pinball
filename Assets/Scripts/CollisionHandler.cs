@@ -17,7 +17,9 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem successVFX;
     [SerializeField] ParticleSystem failVFX;
     [SerializeField] MeshRenderer mR;
-    [SerializeField] TextMeshPro scoreText;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] Button restart;
+    [SerializeField] Canvas deathCanvas;
 
 
     int score = 0;
@@ -27,6 +29,7 @@ public class CollisionHandler : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         pI = GetComponent<Flipper>();
         aSo = GetComponent<AudioSource>();
+        //deathCanvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,9 +66,9 @@ public class CollisionHandler : MonoBehaviour
 
     private void Bumper()
     {
-        
+        scoreText.text = "score " + score;
         score++;
-        Debug.Log(score);
+        //Debug.Log(score);
         aSo.PlayOneShot(successSFX, 0.5f);
         successVFX.Play();
 
@@ -74,12 +77,14 @@ public class CollisionHandler : MonoBehaviour
     private void FailState()
     {
         failVFX.Play();
-        aSo.PlayOneShot(failSFX, 0.5f);
+        aSo.PlayOneShot(failSFX);
         pI.enabled = false;
-        Invoke("ReloadLevel", delay);
+        deathCanvas.gameObject.SetActive(true);
+        restart.onClick.AddListener(ReloadLevel);
+        //Invoke("ReloadLevel", delay);
     }
 
-    private void ReloadLevel()
+    public void ReloadLevel()
     {
         SceneManager.LoadScene(currentSceneIndex);
     }
