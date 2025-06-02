@@ -10,7 +10,7 @@ public class CollisionHandler : MonoBehaviour
     int currentSceneIndex;
     float delay = 2f;
 
-    Flipper pI;
+    //Flipper pI;
     [SerializeField] AudioClip successSFX;
     [SerializeField] AudioClip failSFX;
     AudioSource aSo;
@@ -27,7 +27,7 @@ public class CollisionHandler : MonoBehaviour
     void Start()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        pI = GetComponent<Flipper>();
+        //pI = GetComponent<Flipper>();
         aSo = GetComponent<AudioSource>();
         //deathCanvas.gameObject.SetActive(false);
     }
@@ -78,7 +78,7 @@ public class CollisionHandler : MonoBehaviour
     {
         failVFX.Play();
         aSo.PlayOneShot(failSFX);
-        pI.enabled = false;
+        //pI.enabled = false;
         deathCanvas.gameObject.SetActive(true);
         restart.onClick.AddListener(ReloadLevel);
         //Invoke("ReloadLevel", delay);

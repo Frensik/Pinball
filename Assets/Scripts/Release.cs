@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Release : MonoBehaviour
 {
-    [SerializeField] Input release;
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
 
