@@ -35,6 +35,7 @@ public class CollisionHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreText.text = "score " + score.ToString();
         //if points are over 100 then you win
     }
 
@@ -66,9 +67,8 @@ public class CollisionHandler : MonoBehaviour
 
     private void Bumper()
     {
-        scoreText.text = "score " + score;
         score++;
-        //Debug.Log(score);
+        Debug.Log(score);
         aSo.PlayOneShot(successSFX, 0.5f);
         successVFX.Play();
 
