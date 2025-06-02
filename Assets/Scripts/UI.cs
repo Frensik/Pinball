@@ -11,9 +11,11 @@ public class UI : MonoBehaviour
 
     void Start()
     {
+        //sets canvas to invisible
         deathCanvas.gameObject.SetActive(false);
     }
 
+    //makes canvas visible when death plane collides with player
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")

@@ -17,6 +17,7 @@ public class Oscillator : MonoBehaviour
     private void Update()
     {
         {
+            //moves the bumper from side to side
             movementFactor = Mathf.Sin(Time.time);
             Vector3 offset = movementPos * movementFactor;
             transform.position = startingPos + offset;
@@ -24,6 +25,7 @@ public class Oscillator : MonoBehaviour
 
     }
 
+    //coroutine was used in an effort to stop the ball from clipping out of the starting cage by delaying its movement but it didn't work
     private IEnumerator Bazinga()
     {
         yield return new WaitForSeconds(1);

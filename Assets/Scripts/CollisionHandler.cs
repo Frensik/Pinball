@@ -26,6 +26,7 @@ public class CollisionHandler : MonoBehaviour
 
     void Start()
     {
+        //gets current scene index
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         //pI = GetComponent<Flipper>();
         aSo = GetComponent<AudioSource>();
@@ -34,19 +35,18 @@ public class CollisionHandler : MonoBehaviour
 
     void Update()
     {
+        //attributes the score to the UI text
         scoreText.text = "score " + score.ToString();
         
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        //different things will happen depending on which tag an object has that the ball collides with
         switch (other.gameObject.tag)
         {
             case "Bumper":
                 Bumper();
-                break;
-            case "Finish":
-                WinState();
                 break;
             case "Ouch":
                 FailState();
@@ -56,15 +56,10 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    private void WinState()
-    {
-        successVFX.Play();
-        aSo.PlayOneShot(successSFX, 0.5f);
-        Invoke("LoadNextLevel", delay);
-    }
-
     private void Bumper()
     {
+        //adds to the score
+        //plays a noise
         score++;
         Debug.Log(score);
         aSo.PlayOneShot(successSFX, 0.5f);
@@ -83,6 +78,7 @@ public class CollisionHandler : MonoBehaviour
 
     public void ReloadLevel()
     {
+        //reloads the current scene
         SceneManager.LoadScene(currentSceneIndex);
     }
 

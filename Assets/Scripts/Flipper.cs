@@ -14,6 +14,7 @@ public class Flipper : MonoBehaviour
     //    animator.SetTrigger("Flip");
     //}
 
+
     public float restPosition = 0f;
     public float pressedPosition = 45f;
     public float hitStrength = 10000f;
@@ -29,14 +30,17 @@ public class Flipper : MonoBehaviour
 
     private void Update()
     {
+        //this determines how fast the flipper moves
         JointSpring spring = new JointSpring();
         spring.spring = hitStrength;
         spring.damper = flipperDamper;
 
+        //moves the flipper to the max rotation when the key is pressed
         if(Input.GetAxis(inputName)==1)
         {
             spring.targetPosition = pressedPosition;
         }
+        //moves it back when key is let go
         else
         {
             spring.targetPosition = restPosition;
